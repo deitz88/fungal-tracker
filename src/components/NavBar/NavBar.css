@@ -1,0 +1,9 @@
+#navCont{
+    height: 4em;
+}
+
+#navListItem{
+    display: inline;
+    margin: 0 1.5em 0 1.5em;
+   
+}
