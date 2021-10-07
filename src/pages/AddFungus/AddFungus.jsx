@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { Grid, Header, Form, Segment, Dropdown, Button } from 'semantic-ui-react'
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
+import fungusService from '../../utils/fungusService'
 
 export default function AddFungus({ user }) {
     const history = useHistory();
@@ -12,7 +13,7 @@ export default function AddFungus({ user }) {
     const [startDate, setStartDate] = useState(new Date());
     const [type, setType] = useState('')
     const [formInput, setFormInput] = useState({
-        date: startDate,
+        created: startDate,
         name: '',
         type: type
     })
@@ -42,13 +43,17 @@ export default function AddFungus({ user }) {
         });
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
+        e.preventDefault()
         if (user) {
             if (formInput.type === '' || undefined) {
                 setError('Please select a strain')
             } else {
-                e.preventDefault()
-                console.log(formInput)
+                try {
+                    await fungusService.addFungus(formInput)
+                } catch (err) {
+                    setError(err.message);
+                }
                 // history.push('/index')
             }
         } else {
