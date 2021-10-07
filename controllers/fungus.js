@@ -4,7 +4,8 @@ const Fungus = require('../models/fungus')
 
 
 module.exports = {
-    addFungus
+    addFungus,
+    getUserFungus
 };
 
 async function addFungus(req, res) {
@@ -17,4 +18,10 @@ async function addFungus(req, res) {
         res.status(400).json(err);
     }
 
+}
+
+async function getUserFungus(req, res) {
+    console.log(req.user)
+    const fungus = await Fungus.find({ user: req.user._id });
+    return res.json({ fungus });
 }

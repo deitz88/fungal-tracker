@@ -5,6 +5,7 @@ const fungusCtrl = require('../../controllers/fungus');
 // const upload = multer();
 /*---------- Public Routes ----------*/
 router.post('/addfungus', fungusCtrl.addFungus);
+router.get('/getuserindex', fungusCtrl.getUserFungus)
 
 
 /*---------- Protected Routes ----------*/
