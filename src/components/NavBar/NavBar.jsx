@@ -1,7 +1,7 @@
 import React from 'react'
 import './NavBar.css'
 import { Link } from 'react-router-dom'
-import { Segment, Header, Icon, Image } from "semantic-ui-react";
+import { Segment, Header, Image } from "semantic-ui-react";
 
 
 export default function NavBar({ user, handleSignUpOrLogin, handleLogout }) {

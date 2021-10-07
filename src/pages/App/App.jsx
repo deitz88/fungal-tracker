@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 import tokenService from '../../utils/tokenService';
@@ -17,7 +17,7 @@ function App() {
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like 
   // this  const token = createJWT(user); // where user was the document we created from mongo
 
-  function handleSignUpOrLogin(){
+  function handleSignUpOrLogin() {
     setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
   }
 
@@ -30,36 +30,36 @@ function App() {
 
   return (
     <div className="App">
-       <NavBar
+      <NavBar
         user={user}
         handleSignUpOrLogin={handleSignUpOrLogin}
         handleLogout={handleLogout}
       />
       <Switch>
-      <Route exact path="/">
-             <HomePage handleSignUpOrLogin={handleSignUpOrLogin}/>
-          </Route>
-          <Route exact path="/login">
-             <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-          </Route>
-          <Route exact path="/signup">
-             <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-          </Route>
-          {userService.getUser() ? 
-            <> 
-             <Switch>
-                <Route exact path="/index">
-                    <Main handleSignUpOrLogin={handleSignUpOrLogin} />
-                </Route>
-                <Route exact path="/addfungus">
-                    <AddFungus handleSignUpOrLogin={handleSignUpOrLogin} />
-                </Route>
+        <Route exact path="/">
+          <HomePage handleSignUpOrLogin={handleSignUpOrLogin} />
+        </Route>
+        <Route exact path="/login">
+          <LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />
+        </Route>
+        <Route exact path="/signup">
+          <SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />
+        </Route>
+        {userService.getUser() ?
+          <>
+            <Switch>
+              <Route exact path="/index">
+                <Main handleSignUpOrLogin={handleSignUpOrLogin} />
+              </Route>
+              <Route exact path="/addfungus">
+                <AddFungus user={user} handleSignUpOrLogin={handleSignUpOrLogin} />
+              </Route>
             </Switch>
-            </>
-            :
-            <Redirect to='/login'/>
-          }
-  
+          </>
+          :
+          <Redirect to='/login' />
+        }
+
       </Switch>
     </div>
   );
