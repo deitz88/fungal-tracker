@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Main.css'
 import fungusService from '../../utils/fungusService'
-import { Grid, Loader, Card, Segment } from 'semantic-ui-react'
+import { Grid, Loader, Segment } from 'semantic-ui-react'
 import FungusCard from '../../components/FungusCard/FungusCard'
 
 export default function Main({ user }) {
@@ -22,7 +22,6 @@ export default function Main({ user }) {
             );
         }
     }
-
 
     useEffect(() => {
         getFungus();
@@ -47,23 +46,33 @@ export default function Main({ user }) {
             </Grid>
         );
     }
-    console.log()
-    return (
-        <>
-            <h1> Main Page HEre </h1>
-            <div id='contentCont'>
-                {/* <Card fluid header="Comments:" id="usernameHeader" /> */}
-                <Segment>
-                    {fungus.fungus.map((oneFungus) => {
-                        return (
-                            <FungusCard fungus={oneFungus} />
-                        )
-                    })
-                    }
-                </Segment>
+    if (!fungus.fungus) {
+        return (
+            <>
+                <h1>Fungus Dashboard</h1>
+                <div id='contentCont'>
+                    <h3>Nothing to display</h3>
+                </div>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <h1> Fungus Dashboard </h1>
+                <div id='contentCont'>
+                    {/* <Card fluid header="Comments:" id="usernameHeader" /> */}
+                    <Segment>
+                        {fungus.fungus.map((oneFungus, i) => {
+                            return (
+                                <FungusCard fungus={oneFungus} key={i} />
+                            )
+                        })
+                        }
+                    </Segment>
 
 
-            </div>
-        </>
-    )
+                </div>
+            </>
+        )
+    }
 }

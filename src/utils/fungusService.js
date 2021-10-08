@@ -3,7 +3,7 @@ import tokenService from "./tokenService";
 const BASE_URL = '/api/fungus/';
 
 async function addFungus(data) {
-    // console.log(data)
+    console.log(data.created)
     return fetch(BASE_URL + 'addfungus', {
         method: "POST",
         headers: {

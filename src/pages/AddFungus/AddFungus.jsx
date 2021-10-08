@@ -17,7 +17,7 @@ export default function AddFungus({ user }) {
         name: '',
         type: type
     })
-
+    console.log(formInput.created)
     const strains = [
         {
             key: "lion's main",
@@ -35,14 +35,29 @@ export default function AddFungus({ user }) {
             value: "magic1"
         },
     ]
-
+    // const grains = [
+    //     {
+    //         key: "quart",
+    //         text: "Quart",
+    //         value: "quart"
+    //     },
+    //     {
+    //         key: "oyster",
+    //         text: "Oyster",
+    //         value: "oyster1"
+    //     },
+    //     {
+    //         key: "magic",
+    //         text: "Magic",
+    //         value: "magic1"
+    //     },
+    // ]
     function handleInput(e) {
         setFormInput({
             ...formInput,
             [e.target.name]: e.target.value,
         });
     }
-
     async function handleSubmit(e) {
         e.preventDefault()
         if (user) {
@@ -54,7 +69,7 @@ export default function AddFungus({ user }) {
                 } catch (err) {
                     setError(err.message);
                 }
-                // history.push('/index')
+                history.push('/index')
             }
         } else {
             history.push('/')
@@ -66,9 +81,9 @@ export default function AddFungus({ user }) {
         formInput.type = e.target.innerText
     }
 
-    function handleDateChange(date) {
-        setStartDate(date)
-        formInput.date = date
+    function handleDateChange(dateNew) {
+        setStartDate(dateNew)
+        formInput.created = dateNew
     }
 
 
