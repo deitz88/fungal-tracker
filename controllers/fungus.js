@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function addFungus(req, res) {
-    const fungus = new Fungus({ created: req.body.created, type: req.body.type, name: req.body.name, user: req.user._id });
+    const fungus = new Fungus({ spawn: req.body.spawn, created: req.body.created, type: req.body.type, name: req.body.name, user: req.user._id });
     try {
         await fungus.save();
         res.json({ fungus });

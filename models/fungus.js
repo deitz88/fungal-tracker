@@ -5,6 +5,7 @@ const fungusSchema = new mongoose.Schema({
     type: String,
     created: Date,
     name: String,
+    spawn: String,
 }, {
     timestamps: true
 }
