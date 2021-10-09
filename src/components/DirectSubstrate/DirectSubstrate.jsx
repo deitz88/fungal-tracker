@@ -44,7 +44,7 @@ export default function DirectSubstrate({ fungus }) {
                     ],
                     [
                         `${fungus.name} (${fungus.type})`,
-                        'Substrate Colonization',
+                        `Col. through ${colMonth}.${colDay}.${colYear}`,
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],
