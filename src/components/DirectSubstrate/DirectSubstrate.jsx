@@ -12,16 +12,22 @@ export default function DirectSubstrate({ fungus }) {
     // quart
     // let test = fungus.created
     let d = new Date(fungus.created)
-    let phase2 = d.setDate(d.getDate(fungus.created) + 30)
+    let phase2 = d.setDate(d.getDate(fungus.created) + 20)
     let initialColonization = new Date(phase2)
     //quart finish dates
     let colMonth = initialColonization.getMonth() + 1
     let colYear = initialColonization.getFullYear()
     let colDay = initialColonization.getDate()
 
+    let d2 = new Date(phase2)
+    let final = d2.setDate(d2.getDate(phase2) + 7)
+    let fruit = new Date(final)
+    let fruitMonth = fruit.getMonth() + 1
+    let fruitYear = fruit.getFullYear()
+    let fruitDay = fruit.getDate()
+
     return (
         <>
-            <h1>direct</h1>
             <Chart
                 width={'100%'}
                 height={'7em'}
@@ -35,22 +41,16 @@ export default function DirectSubstrate({ fungus }) {
                         { type: 'date', id: 'End' },
                     ],
                     [
-                        `${fungus.type} (${fungus.name})`,
-                        'Germination',
+                        `${fungus.name} (${fungus.type})`,
+                        'Substrate Colonization',
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],
                     [
-                        `${fungus.type} (${fungus.name})`,
-                        'Colonization',
+                        `${fungus.name} (${fungus.type})`,
+                        'Est. Fruit',
                         new Date(colYear, colMonth, colDay),
-                        new Date(2022, 2, 4)
-                    ],
-                    [
-                        `${fungus.type} (${fungus.name})`,
-                        'Average Fruiting Time',
-                        new Date(2022, 2, 4),
-                        new Date(2022, 2, 4),
+                        new Date(fruitYear, fruitMonth, fruitDay),
                     ],
 
                 ]}

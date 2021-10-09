@@ -1,7 +1,41 @@
 #contentCont{
-    width: 80vw;
+    width: 90vw;
     height: 60vh;
     margin: auto;
     padding: 1em;
-    border: solid black 1px;
+    /* border: solid black 1px; */
+}
+
+#labelTitle{
+    display: inline;
+    position: absolute;
+    right: 8%;
+    top: 8%
+}
+
+#firstLevelLabelText{
+    margin-bottom: -50%
+}
+
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    #contentCont{
+        width: 100%;
+    }
+    #labelTitle{
+        top: 9%;
+        right: 3%;
+    }
+    svg{
+        position: relative;
+        right: 2.8%;
+        /* width: 10% */
+    }
+    div.ui.segment{
+        width: 95vw;
+    }
+
+
 }

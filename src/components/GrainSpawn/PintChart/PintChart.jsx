@@ -12,7 +12,6 @@ export default function PintChart({ fungus }) {
 
 
     // quart
-    // let test = fungus.created
     let d = new Date(fungus.created)
     let phase2 = d.setDate(d.getDate(fungus.created) + 30)
     let initialColonization = new Date(phase2)
@@ -21,11 +20,28 @@ export default function PintChart({ fungus }) {
     let colYear = initialColonization.getFullYear()
     let colDay = initialColonization.getDate()
 
+    // ready for fruiting estimate
+    let d2 = new Date(initialColonization)
+    let phase3 = d2.setDate(d2.getDate(initialColonization) + 20)
+    let rdy = new Date(phase3)
+    let rdyMonth = rdy.getMonth() + 1
+    let rdyYear = rdy.getFullYear()
+    let rdyDay = rdy.getDate()
+
+    //first fruit
+    let d3 = new Date(rdy)
+    let final = d3.setDate(d3.getDate(rdy) + 7)
+    let fruit = new Date(final)
+    let fruitMonth = fruit.getMonth() + 1
+    let fruitYear = fruit.getFullYear()
+    let fruitDay = fruit.getDate()
+
+    let totalDays = `${fruitMonth}.${fruitDay}.${fruitYear}`
+
     return (
-        <>
-            <h1>pint</h1>
+        <div id='chartCont'>
             <Chart
-                width={'100%'}
+                width={'95%'}
                 height={'7em'}
                 chartType="Timeline"
                 loader={<div>Loading Chart</div>}
@@ -37,22 +53,22 @@ export default function PintChart({ fungus }) {
                         { type: 'date', id: 'End' },
                     ],
                     [
-                        `${fungus.type} (${fungus.name})`,
+                        `${fungus.name} (${fungus.type})`,
                         'Germination',
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],
                     [
-                        `${fungus.type} (${fungus.name})`,
+                        `${fungus.name} (${fungus.type})`,
                         'Colonization',
                         new Date(colYear, colMonth, colDay),
-                        new Date(2022, 2, 4)
+                        new Date(rdyYear, rdyMonth, rdyDay)
                     ],
                     [
-                        `${fungus.type} (${fungus.name})`,
-                        'Average Fruiting Time',
-                        new Date(2022, 2, 4),
-                        new Date(2022, 2, 4),
+                        `${fungus.name} (${fungus.type})`,
+                        'Est. Fruit',
+                        new Date(rdyYear, rdyMonth, rdyDay),
+                        new Date(fruitYear, fruitMonth, fruitDay),
                     ],
 
                 ]}
@@ -69,6 +85,7 @@ export default function PintChart({ fungus }) {
                 }}
                 rootProps={{ 'data-testid': '3' }}
             />
-        </>
+            <h6 id='countLabel'>{totalDays}</h6>
+        </div>
     )
 }

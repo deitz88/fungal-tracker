@@ -49,7 +49,7 @@ export default function Main({ user }) {
     if (!fungus.fungus) {
         return (
             <>
-                <h1>Fungus Dashboard</h1>
+                <h3>Fungus Dashboard</h3>
                 <div id='contentCont'>
                     <h3>Nothing to display</h3>
                 </div>
@@ -58,10 +58,9 @@ export default function Main({ user }) {
     } else {
         return (
             <>
-                <h1> Fungus Dashboard </h1>
                 <div id='contentCont'>
-                    {/* <Card fluid header="Comments:" id="usernameHeader" /> */}
                     <Segment>
+                        <h3> Fungus Dashboard </h3>
                         {fungus.fungus.map((oneFungus, i) => {
                             return (
                                 <FungusCard fungus={oneFungus} key={i} />
@@ -69,6 +68,10 @@ export default function Main({ user }) {
                         })
                         }
                     </Segment>
+                    <div id='labelTitle'>
+                        <h6 id='firstLevelLabelText'>1st Fruiting</h6>
+                        <h6>(Est.)</h6>
+                    </div>
 
 
                 </div>

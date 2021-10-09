@@ -1,0 +1,12 @@
+/* #chartCont{
+    display: inline-flex;
+    position: relative;
+
+} */
+
+
+#countLabel{
+    position: relative;
+    left: 39vw;
+    bottom: 12vh
+}
