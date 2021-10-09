@@ -54,7 +54,7 @@ export default function PintChart({ fungus }) {
                     ],
                     [
                         `${fungus.name} (${fungus.type})`,
-                        'Germination',
+                        `Jar's through ${colMonth}.${colDay}.${colYear}`,
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],

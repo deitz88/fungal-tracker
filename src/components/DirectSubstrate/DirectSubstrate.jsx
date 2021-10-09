@@ -26,10 +26,12 @@ export default function DirectSubstrate({ fungus }) {
     let fruitYear = fruit.getFullYear()
     let fruitDay = fruit.getDate()
 
+    let totalDays = `${fruitMonth}.${fruitDay}.${fruitYear}`
+
     return (
         <>
             <Chart
-                width={'100%'}
+                width={'95%'}
                 height={'7em'}
                 chartType="Timeline"
                 loader={<div>Loading Chart</div>}
@@ -55,7 +57,7 @@ export default function DirectSubstrate({ fungus }) {
 
                 ]}
                 options={{
-                    colors: ['#cbb69d', '#603913', '#c69c6e'],
+                    colors: ['#603913', '#c69c6e'],
                     timeline: {
                         rowLabelStyle: {
                             fontName: 'Helvetica',
@@ -67,6 +69,9 @@ export default function DirectSubstrate({ fungus }) {
                 }}
                 rootProps={{ 'data-testid': '3' }}
             />
+            <div id='countCont'>
+                <h6 id='countLabel'>{totalDays}</h6>
+            </div>
         </>
     )
 }

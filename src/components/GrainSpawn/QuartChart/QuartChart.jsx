@@ -57,7 +57,7 @@ export default function QuartChart({ fungus }) {
                     ],
                     [
                         `${fungus.name} (${fungus.type})`,
-                        'Germination',
+                        `Jar's through ${colMonth}.${colDay}.${colYear}`,
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],
@@ -69,7 +69,7 @@ export default function QuartChart({ fungus }) {
                     ],
                     [
                         `${fungus.name} (${fungus.type})`,
-                        'Average Fruiting Time',
+                        'Est. Fruit',
                         new Date(rdyYear, rdyMonth, rdyDay),
                         new Date(fruitYear, fruitMonth, fruitDay),
                     ],

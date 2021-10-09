@@ -17,6 +17,13 @@
     margin-bottom: -50%
 }
 
+svg{
+   height: 40%
+}
+#chartCont{
+    height: 2.5em;
+}
+
 @media only screen 
   and (min-device-width: 414px) 
   and (max-device-width: 736px) 
