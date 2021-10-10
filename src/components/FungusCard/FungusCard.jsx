@@ -5,7 +5,6 @@ import GrainSpawn from '../GrainSpawn/GrainSpawn';
 import DirectSubstrate from '../../components/DirectSubstrate/DirectSubstrate'
 
 export default function FungusCard({ fungus }) {
-    console.log(fungus.spawn)
     // quart 4-6 weeks, pint 3-5 weeks, colonization time 2-3 weeks
 
 

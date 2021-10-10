@@ -40,6 +40,8 @@ export default function QuartChart({ fungus }) {
 
     let totalDays = `${fruitMonth}.${fruitDay}.${fruitYear}`
 
+    console.log(fungus.type)
+
 
     return (
         <div id='chartCont'>
