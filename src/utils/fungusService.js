@@ -31,8 +31,24 @@ async function getAllFungus() {
     });
 }
 
+async function deleteFungus(id) {
+    return fetch(BASE_URL + 'delete/' + id, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            Authorization: "Bearer " + tokenService.getToken(),
+        },
+    }).then((res) => {
+        if (res.ok) return res.json();
+        new Error("Error removing fungus");
+    });
+}
+
+
+
 
 export default {
     addFungus,
-    getAllFungus
+    getAllFungus,
+    deleteFungus
 };

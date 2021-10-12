@@ -3,7 +3,15 @@
     position: relative;
 
 } */
-
+#deleteCont{
+    /* background-color: red; */
+    width: fit-content;
+    height: fit-content;
+    /* padding: 0px 5px; */
+    position: relative;
+    bottom: 17.4vh;
+    left: -1.1vw;
+}
 
 #countLabel{
     position: relative;

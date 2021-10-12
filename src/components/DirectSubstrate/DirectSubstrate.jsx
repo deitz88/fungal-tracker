@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import Chart from "react-google-charts";
 import './DirectSubstrate.css'
+import fungusService from '../../utils/fungusService';
 
-export default function DirectSubstrate({ fungus }) {
+export default function DirectSubstrate({ getFungus, fungus }) {
+
+    const ref = useRef(null)
+    const [show, setShow] = useState(false)
+    const [xpos, setX] = useState()
+    const [ypos, setY] = useState()
     const newDate = fungus.created.toString()
     const origyear = parseInt(newDate.substring(0, 4))
     const origmonth = parseInt(newDate.substring(5, 7))
@@ -10,7 +17,6 @@ export default function DirectSubstrate({ fungus }) {
 
 
     // quart
-    // let test = fungus.created
     let d = new Date(fungus.created)
     let phase2 = d.setDate(d.getDate(fungus.created) + 20)
     let initialColonization = new Date(phase2)
@@ -28,8 +34,22 @@ export default function DirectSubstrate({ fungus }) {
 
     let totalDays = `${fruitMonth}.${fruitDay}.${fruitYear}`
 
+    async function handleDelete() {
+        await fungusService.deleteFungus(fungus._id)
+        getFungus()
+    }
+    function test(e) {
+        setShow(!show)
+        console.log(fungus._id)
+        console.log(e.pageX, e.pageY)
+    }
+    function showMenu(e) {
+        setShow(true)
+        console.log(ref)
+    }
+
     return (
-        <>
+        <div id='chartCont' onContextMenu={showMenu} ref=''>
             <Chart
                 width={'95%'}
                 height={'7em'}
@@ -68,10 +88,26 @@ export default function DirectSubstrate({ fungus }) {
                     },
                 }}
                 rootProps={{ 'data-testid': '3' }}
+
             />
+
+
             <div id='countCont'>
                 <h6 id='countLabel'>{totalDays}</h6>
             </div>
-        </>
+            <div id='deleteCont'>
+                <Link onClick={handleDelete}>
+                    <h6>X</h6>
+                </Link>
+            </div>
+            {show ? (
+                <div id='contextCont' style={{ top: ypos, left: xpos }}>
+                    <h3 id='contextItem' onClick={test}>test</h3>
+                </div>
+            ) : (
+                ''
+            )}
+
+        </div>
     )
 }

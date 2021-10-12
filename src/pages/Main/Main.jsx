@@ -63,7 +63,7 @@ export default function Main({ user }) {
                         <h3> Fungus Dashboard </h3>
                         {fungus.fungus.map((oneFungus, i) => {
                             return (
-                                <FungusCard fungus={oneFungus} key={i} />
+                                <FungusCard getFungus={getFungus} fungus={oneFungus} key={i} />
                             )
                         })
                         }

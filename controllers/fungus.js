@@ -5,7 +5,9 @@ const Fungus = require('../models/fungus')
 
 module.exports = {
     addFungus,
-    getUserFungus
+    getUserFungus,
+    deleteFungus
+
 };
 
 async function addFungus(req, res) {
@@ -25,3 +27,16 @@ async function getUserFungus(req, res) {
     const fungus = await Fungus.find({ user: req.user._id });
     return res.json({ fungus });
 }
+
+async function deleteFungus(req, res) {
+
+    try {
+        await Fungus.findByIdAndDelete(req.params.id)
+        res.json('deleted fungus')
+    } catch (err) {
+        console.log('catch error', err)
+        res.status(400).json(err);
+    }
+
+}
+

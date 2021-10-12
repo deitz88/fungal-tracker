@@ -1,0 +1,21 @@
+#contextItem {
+    font-size: 10px;
+    width: fit-content;
+    padding: 2px 2em;
+    border: 0.5px solid rgba(149, 149, 149, 0.367);
+}
+#contextItem:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+#contextCont {
+    background-color: rgb(222, 222, 222);
+    width: fit-content;
+    padding: 1.5% 4%;
+    position: relative;
+}
+
+#testy {
+    z-index: 1000;
+    background-color: red;
+}

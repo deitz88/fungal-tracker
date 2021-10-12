@@ -6,6 +6,7 @@ const fungusCtrl = require('../../controllers/fungus');
 /*---------- Public Routes ----------*/
 router.post('/addfungus', fungusCtrl.addFungus);
 router.get('/getuserindex', fungusCtrl.getUserFungus)
+router.post('/delete/:id', fungusCtrl.deleteFungus)
 
 
 /*---------- Protected Routes ----------*/
