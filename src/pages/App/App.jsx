@@ -9,7 +9,6 @@ import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage';
 import Main from '../Main/Main'
 import AddFungus from '../AddFungus/AddFungus';
-import Test1 from '../Test1/Test1'
 
 function App() {
 
@@ -39,9 +38,6 @@ function App() {
       <Switch>
         <Route exact path="/">
           <HomePage handleSignUpOrLogin={handleSignUpOrLogin} />
-        </Route>
-        <Route exact path="/test1">
-          <Test1 />
         </Route>
         <Route exact path="/login">
           <LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />

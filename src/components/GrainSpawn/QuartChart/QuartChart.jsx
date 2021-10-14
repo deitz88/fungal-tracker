@@ -1,9 +1,11 @@
 import React from 'react'
 import Chart from "react-google-charts";
+import { Link } from 'react-router-dom'
 import './QuartChart.css'
+import fungusService from '../../../utils/fungusService';
 
 
-export default function QuartChart({ fungus }) {
+export default function QuartChart({ fungus, handleDelete }) {
 
     const newDate = fungus.created.toString()
     const origyear = parseInt(newDate.substring(0, 4))
@@ -39,8 +41,6 @@ export default function QuartChart({ fungus }) {
     let fruitDay = fruit.getDate()
 
     let totalDays = `${fruitMonth}.${fruitDay}.${fruitYear}`
-
-    console.log(fungus.type)
 
 
     return (
@@ -92,6 +92,11 @@ export default function QuartChart({ fungus }) {
             />
             <div id='countCont'>
                 <h6 id='countLabel'>{totalDays}</h6>
+            </div>
+            <div id='deleteCont'>
+                <Link onClick={handleDelete}>
+                    <h6>X</h6>
+                </Link>
             </div>
         </div>
     )

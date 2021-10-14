@@ -4,10 +4,11 @@ import QuartChart from './QuartChart/QuartChart';
 import PintChart from './PintChart/PintChart';
 
 
-export default function GrainSpawn({ fungus }) {
+export default function GrainSpawn({ fungus, getFungus, handleDelete }) {
+    console.log(fungus.spawn)
     if (fungus.spawn === 'Quart') {
-        return (<QuartChart fungus={fungus} />)
+        return (<QuartChart getFungus={getFungus} fungus={fungus} handleDelete={handleDelete} />)
     } else {
-        return (<PintChart fungus={fungus} />)
+        return (<PintChart getFungus={getFungus} fungus={fungus} handleDelete={handleDelete} />)
     }
 }

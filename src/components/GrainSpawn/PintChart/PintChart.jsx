@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Chart from "react-google-charts";
 import './PintChart.css'
 
 
-export default function PintChart({ fungus }) {
+export default function PintChart({ fungus, handleDelete }) {
 
     const newDate = fungus.created.toString()
     const origyear = parseInt(newDate.substring(0, 4))
@@ -86,6 +87,11 @@ export default function PintChart({ fungus }) {
                 rootProps={{ 'data-testid': '3' }}
             />
             <h6 id='countLabel'>{totalDays}</h6>
+            <div id='deleteCont'>
+                <Link onClick={handleDelete}>
+                    <h6>X</h6>
+                </Link>
+            </div>
         </div>
     )
 }

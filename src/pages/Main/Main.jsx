@@ -23,6 +23,11 @@ export default function Main({ user }) {
         }
     }
 
+    async function handleDelete() {
+        await fungusService.deleteFungus(fungus._id)
+        getFungus()
+    }
+
     useEffect(() => {
         getFungus();
     }, []);

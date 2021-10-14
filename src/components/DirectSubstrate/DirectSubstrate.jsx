@@ -1,15 +1,12 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Chart from "react-google-charts";
 import './DirectSubstrate.css'
 import fungusService from '../../utils/fungusService';
+import ContextMenu from 'react-context-menu';
 
-export default function DirectSubstrate({ getFungus, fungus }) {
+export default function DirectSubstrate({ getFungus, fungus, handleDelete }) {
 
-    const ref = useRef(null)
-    const [show, setShow] = useState(false)
-    const [xpos, setX] = useState()
-    const [ypos, setY] = useState()
     const newDate = fungus.created.toString()
     const origyear = parseInt(newDate.substring(0, 4))
     const origmonth = parseInt(newDate.substring(5, 7))
@@ -38,18 +35,12 @@ export default function DirectSubstrate({ getFungus, fungus }) {
         await fungusService.deleteFungus(fungus._id)
         getFungus()
     }
-    function test(e) {
-        setShow(!show)
-        console.log(fungus._id)
-        console.log(e.pageX, e.pageY)
-    }
-    function showMenu(e) {
-        setShow(true)
-        console.log(ref)
-    }
+
+
 
     return (
-        <div id='chartCont' onContextMenu={showMenu} ref=''>
+        <div id='chartCont'>
+
             <Chart
                 width={'95%'}
                 height={'7em'}
@@ -92,6 +83,10 @@ export default function DirectSubstrate({ getFungus, fungus }) {
             />
 
 
+
+
+
+
             <div id='countCont'>
                 <h6 id='countLabel'>{totalDays}</h6>
             </div>
@@ -100,13 +95,6 @@ export default function DirectSubstrate({ getFungus, fungus }) {
                     <h6>X</h6>
                 </Link>
             </div>
-            {show ? (
-                <div id='contextCont' style={{ top: ypos, left: xpos }}>
-                    <h3 id='contextItem' onClick={test}>test</h3>
-                </div>
-            ) : (
-                ''
-            )}
 
         </div>
     )
