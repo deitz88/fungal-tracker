@@ -1,4 +1,4 @@
-#contentCont{
+#contentCont {
     width: 90vw;
     height: 60vh;
     margin: auto;
@@ -6,43 +6,38 @@
     /* border: solid black 1px; */
 }
 
-#labelTitle{
+#labelTitle {
     display: inline;
     position: absolute;
     right: 8%;
-    top: 8%
+    top: 10vh;
 }
 
-#firstLevelLabelText{
-    margin-bottom: -50%
+#firstLevelLabelText {
+    margin-bottom: -50%;
 }
 
-svg{
-   height: 40%
+svg {
+    height: 40%;
 }
-#chartCont{
+#chartCont {
     height: 2.5em;
 }
 
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
-    #contentCont{
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    #contentCont {
         width: 100%;
     }
-    #labelTitle{
+    #labelTitle {
         top: 9%;
         right: 3%;
     }
-    svg{
+    svg {
         position: relative;
         right: 2.8%;
         /* width: 10% */
     }
-    div.ui.segment{
+    div.ui.segment {
         width: 95vw;
     }
-
-
 }

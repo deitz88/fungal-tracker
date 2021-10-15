@@ -3,6 +3,8 @@ import './FungusCard.css'
 import fungusService from '../../utils/fungusService';
 import GrainSpawn from '../GrainSpawn/GrainSpawn';
 import DirectSubstrate from '../../components/DirectSubstrate/DirectSubstrate'
+import Straw from '../Straw/Straw';
+import Log from '../Log/Log'
 
 
 export default function FungusCard({ fungus, getFungus }) {
@@ -20,9 +22,9 @@ export default function FungusCard({ fungus, getFungus }) {
     } else if (fungus.spawn === "Direct Substrate") {
         return (<DirectSubstrate setTest={setTest} getFungus={getFungus} handleDelete={handleDelete} fungus={fungus} />)
     } else if (fungus.spawn === 'Log') {
-        return (<h1>Log</h1>)
+        return (<Log fungus={fungus} getFungus={getFungus} handleDelete={handleDelete} e />)
     } else if (fungus.spawn === 'Straw') {
-        return (<h1>Straw</h1>)
+        return (<Straw fungus={fungus} getFungus={getFungus} handleDelete={handleDelete} e />)
     } else {
         return (
             <h1>test</h1>

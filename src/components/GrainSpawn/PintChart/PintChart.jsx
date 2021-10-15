@@ -55,7 +55,7 @@ export default function PintChart({ fungus, handleDelete }) {
                     ],
                     [
                         `${fungus.name} (${fungus.type})`,
-                        `Jar's through ${colMonth}.${colDay}.${colYear}`,
+                        `Pint -  through ${colMonth}.${colDay}.${colYear}`,
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],

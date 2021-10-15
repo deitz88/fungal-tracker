@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Chart from "react-google-charts";
 import './DirectSubstrate.css'
 import fungusService from '../../utils/fungusService';
-import ContextMenu from 'react-context-menu';
 
 export default function DirectSubstrate({ getFungus, fungus, handleDelete }) {
 
@@ -55,7 +54,7 @@ export default function DirectSubstrate({ getFungus, fungus, handleDelete }) {
                     ],
                     [
                         `${fungus.name} (${fungus.type})`,
-                        `Col. through ${colMonth}.${colDay}.${colYear}`,
+                        `Direct - through ${colMonth}.${colDay}.${colYear}`,
                         new Date(origyear, origmonth, origday),
                         new Date(colYear, colMonth, colDay),
                     ],
